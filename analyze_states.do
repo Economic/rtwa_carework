@@ -16,6 +16,7 @@ gen childcare = occ == 4600
 gen home_health_aide = occ == 3601
 gen personal_care_aide = occ == 3602
 gen homecare_all = home_health_aide == 1 | personal_care_aide == 1
+gen carework_all = home_health_aide == 1 | personal_care_aide == 1 | childcare == 1
 * Private households 9290
 * Home health care services 8170
 * Individual and family services 8370
@@ -25,13 +26,13 @@ gen homecare_home = home_health_aide == 1 | (personal_care_aide == 1 & inlist(in
 tempfile alldata
 save `alldata'
 
-local groups all childcare homecare_all
+local groups childcare homecare_all carework_all
 
 local all_title = "All occupations"
 local childcare_title = "Childcare workers"
 local homecare_all_title =  "Personal care and home health aides"
 local homecare_home_title = "... In home care"
-
+local carework_all_title = "All care workers"
 
 *******************************************************************************
 * Counts and group share affected
