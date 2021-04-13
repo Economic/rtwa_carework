@@ -41,14 +41,14 @@ gcollapse (rawsum) _total_sample = overall (sum) _total_workforce = overall _tot
 
 append using `tab5_us'
 
-replace _share_affected = . if _total_sample < 1000
+replace _share_affected = . if _total_sample < 500 | _total_affected < 1000
 replace _share_affected = _share_affected * 100
 gen share_affected = string(_share_affected, "%3.0f") + "%"
 
 replace _total_workforce = . if _total_sample < 500
 gen total_workforce = string(round(_total_workforce, 1000), "%10.0fc")
 
-replace _total_affected = . if _total_sample < 1000
+replace _total_affected = . if _total_sample < 500 | _total_affected < 1000
 gen total_affected = string(round(_total_affected, 1000), "%10.0fc")
 
 foreach x in total_workforce total_affected share_affected {
