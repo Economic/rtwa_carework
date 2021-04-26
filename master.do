@@ -24,4 +24,4 @@ do clean_acs.do
  
 do run_models.do
 
-do analyze_carework.do
+do analyze_childcare.do
