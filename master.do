@@ -25,7 +25,8 @@ global output_dir outputs/
 *do run_models.do
 
 *do analyze_carework.do
-do analyze_states.do
+*do analyze_states.do
+do analyze_ltcarework.do
 
 * state-level sample sizes
 *do state_sample.do
